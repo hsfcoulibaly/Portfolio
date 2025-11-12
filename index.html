@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Coulibaly - Software Engineer</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Icons (for email, phone, etc.) -->
+    <script type_A="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <style>
+        /* Use Inter as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple styling for the skill tags */
+        .skill-tag {
+            @apply bg-sky-100 text-sky-800 text-sm font-medium px-3 py-1 rounded-full;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold text-sky-700">Hassan Coulibaly</a>
+                </div>
+                <!-- Navigation Links -->
+                <div class="hidden sm:block">
+                    <div class="flex space-x-4">
+                        <a href="#summary" class="text-gray-600 hover:text-sky-700 px-3 py-2 rounded-md text-sm font-medium">Summary</a>
+                        <a href="#skills" class="text-gray-600 hover:text-sky-700 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#experience" class="text-gray-600 hover:text-sky-700 px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#projects" class="text-gray-600 hover:text-sky-700 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#education" class="text-gray-600 hover:text-sky-700 px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button (Optional, simple nav for now) -->
+                <div class="sm:hidden">
+                    <!-- Mobile menu can be added here -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center py-16 md:py-24">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                Foungnigue Souleymane Hassan Coulibaly
+            </h1>
+            <p class="mt-4 text-2xl md:text-3xl font-medium text-sky-700">
+                Software Engineer
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center items-center gap-x-6 gap-y-4 text-gray-600">
+                <span class="flex items-center">
+                    <ion-icon name="location-outline" class="text-xl mr-2"></ion-icon>
+                    Atlanta, GA
+                </span>
+                <a href="mailto:fcoulibaly3@student.gsu.edu" class="flex items-center hover:text-sky-700">
+                    <ion-icon name="mail-outline" class="text-xl mr-2"></ion-icon>
+                    fcoulibaly3@student.gsu.edu
+                </a>
+                <span class="flex items-center">
+                    <ion-icon name="call-outline" class="text-xl mr-2"></ion-icon>
+                    404-432-5371
+                </span>
+                <a href="https://github.com/HassanCoulibaly" target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-sky-700">
+                    <ion-icon name="logo-github" class="text-xl mr-2"></ion-icon>
+                    github.com/HassanCoulibaly
+                </a>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section id="summary" class="pt-20 -mt-16">
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Summary</h2>
+                <p class="text-lg text-gray-700 leading-relaxed text-center">
+                    M.S. Computer Science candidate with hands-on experience in full-stack web development (PHP, JavaScript) and
+                    advanced analytical projects in Computer Vision and Machine Learning. Proven critical thinker and problem solver
+                    with a successful track record of designing and deploying impactful technical solutions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="pt-20 -mt-16">
+            <div class="max-w-4xl mx-auto mt-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Skills</h2>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Languages</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Frameworks & Tools</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">FLASK</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Deep Learning (CNN, LSTM)</span>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">Pytorch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="pt-20 -mt-16">
+            <div class="max-w-4xl mx-auto mt-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Experience</h2>
+                <div class="space-y-8">
+                    <!-- Job 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="flex justify-between items-start flex-wrap">
+                            <h3 class="text-2xl font-semibold text-sky-700">Graduate Assistant (Web Developer)</h3>
+                            <span class="text-gray-500 font-medium mt-1 sm:mt-0">01/2024 - PRESENT</span>
+                        </div>
+                        <p class="text-lg text-gray-700 font-medium my-1">Georgia State University | Atlanta, GA</p>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            Designed and developed a website for the Computer Science Department of GSU. The website is a platform like a
+                            LinkedIn where students can apply to Research projects published by the department. The Website was built using
+                            HTML, CSS, PHP, and JavaScript while implementing REST APIs for seamless front-end and back-end integration.
+                        </p>
+                    </div>
+                    <!-- Job 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="flex justify-between items-start flex-wrap">
+                            <h3 class="text-2xl font-semibold text-sky-700">Software Developer</h3>
+                            <span class="text-gray-500 font-medium mt-1 sm:mt-0">05/2022 - 11/2023</span>
+                        </div>
+                        <p class="text-lg text-gray-700 font-medium my-1">ANSUT (Agence Nationale du Service Universel de Télécommunications) | Abidjan, Côte d'Ivoire</p>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            The Web Application was designed to help the support team of ANSUT to handle their clients' requests. The web application
+                            had features like visualizing, managing and generating tickets, creating a database of clients and a Directory of users of the
+                            company. The project was built using PHP to manage server-side requests.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            Technologies like JavaScript, CSS and HTML were used to handle the structure and styling of the web
+                            application. Linux was used for server production, PhpMyAdmin for database management, and Microsoft Azure
+                            for hosting the project on a virtual machine.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            It enhanced ANSUT's support department by 65% by releasing this ticketing system since they were handling
+                            requests manually.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="pt-20 -mt-16">
+            <div class="max-w-4xl mx-auto mt-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Projects</h2>
+                <div class="space-y-8">
+                    <!-- Project 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="flex justify-between items-start flex-wrap">
+                            <h3 class="text-2xl font-semibold text-sky-700">Object Dimensioning via Camera Calibration Web App</h3>
+                            <span class="text-gray-500 font-medium mt-1 sm:mt-0">09/2025</span>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            Developed a Computer Vision web application capable of accurately calculating the real-world dimensions of an object from
+                            a single image. The solution utilized perspective projection equations and camera calibration techniques to convert pixel
+                            measurements into real-world units. I used OpenCV-python library, FLASK and Python to build the Web Application.
+                        </p>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="flex justify-between items-start flex-wrap">
+                            <h3 class="text-2xl font-semibold text-sky-700">Twitter Sentiments Analysis Tool</h3>
+                            <span class="text-gray-500 font-medium mt-1 sm:mt-0">01/2025</span>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            Implemented and evaluated advanced sentiment analysis models to automatically determine public opinion (positive, neutral,
+                            negative) from social media data (tweets). My focus involved training deep learning models and verifying their effectiveness,
+                            which successfully confirmed that the hybrid models provided the most accurate predictions for understanding customer
+                            preferences and trends. Key technologies used include GloVe, Python, CNN, and LSTM.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="pt-20 -mt-16">
+            <div class="max-w-4xl mx-auto mt-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Education</h2>
+                <div class="space-y-8">
+                    <!-- School 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="flex justify-between items-start flex-wrap">
+                            <h3 class="text-2xl font-semibold text-sky-700">M.S. Computer Science</h3>
+                            <span class="text-gray-500 font-medium mt-1 sm:mt-0">01/2024 - PRESENT</span>
+                        </div>
+                        <p class="text-lg text-gray-700 font-medium my-1">Georgia State University</p>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            <strong>Relevant Coursework:</strong> Advanced Machine Learning, Parallel Algorithm, Computer Vision
+                        </p>
+                    </div>
+                    <!-- School 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="flex justify-between items-start flex-wrap">
+                            <h3 class="text-2xl font-semibold text-sky-700">B.S. Computer Science</h3>
+                            <span class="text-gray-500 font-medium mt-1 sm:mt-0">05/2022</span>
+                        </div>
+                        <p class="text-lg text-gray-700 font-medium my-1">International University of Grand-Bassam (IUGB) | Abidjan, Côte d'Ivoire</p>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            <strong>Relevant Coursework:</strong> Data Structure, Operating Systems, Software Engineering
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Non-Academic Experience Section -->
+        <section id="non-academic" class="pt-20 -mt-16">
+            <div class="max-w-4xl mx-auto mt-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Non-Academic Experience</h2>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-start flex-wrap">
+                        <h3 class="text-2xl font-semibold text-sky-700">Student Member - IEEE</h3>
+                        <span class="text-gray-500 font-medium mt-1 sm:mt-0">01/2024 - Present</span>
+                    </div>
+                    <p class="text-lg text-gray-700 font-medium my-1">Institute of Electrical and Electronics Engineers | Atlanta, GA</p>
+                    <ul class="list-disc list-inside text-gray-600 leading-relaxed mt-4 space-y-2">
+                        <li>Volunteered for a Raspberry Pie Workshop for Girls WhoCode at GSU under Dr. Abbaas supervision.</li>
+                        <li>Board Member of IEEE@GSU.</li>
+                        <li>Organized an Ideathon gathering more than 30 Undergrad and Grad Students at GSU.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 mt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p>&copy; 2025 Foungnigue Souleymane Hassan Coulibaly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple script for smooth scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // We subtract 64px (4rem) to account for the sticky header's height
+                    const headerOffset = 64; 
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
