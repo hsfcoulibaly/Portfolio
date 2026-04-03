@@ -716,9 +716,9 @@
             gap: 1rem;
         }
 
-        .doc {
+        .doc-card {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 1rem;
             padding: 1.2rem 1.35rem;
             background: var(--bg-card);
@@ -727,26 +727,187 @@
             transition: border-color 0.2s, transform 0.2s;
         }
 
-        .doc:hover {
+        .doc-card:hover {
             border-color: rgba(94, 234, 212, 0.3);
             transform: translateY(-2px);
         }
 
-        .doc i {
-            font-size: 1.75rem;
-            color: var(--accent);
+        .doc-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
         }
 
-        .doc strong {
+        .doc-card-top > i {
+            font-size: 1.75rem;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .doc-card-top strong {
             display: block;
             color: var(--text);
             font-size: 0.95rem;
             margin-bottom: 0.15rem;
         }
 
-        .doc span {
+        .doc-card-top span {
             font-size: 0.8rem;
             color: var(--text-muted);
+        }
+
+        .doc-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 0.15rem;
+            border-top: 1px solid var(--stroke);
+        }
+
+        .btn-doc {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .btn-doc-preview {
+            background: rgba(94, 234, 212, 0.14);
+            color: var(--accent);
+            border: 1px solid rgba(94, 234, 212, 0.35);
+        }
+
+        .btn-doc-preview:hover {
+            background: rgba(94, 234, 212, 0.22);
+        }
+
+        .btn-doc-download {
+            background: transparent;
+            color: var(--text-dim);
+            border: 1px solid var(--stroke);
+            text-decoration: none;
+        }
+
+        .btn-doc-download:hover {
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .preview-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(8px);
+        }
+
+        .preview-modal.is-open {
+            display: flex;
+        }
+
+        .preview-panel {
+            width: min(960px, 100%);
+            max-height: min(92vh, 900px);
+            background: var(--bg-1);
+            border: 1px solid var(--stroke);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .preview-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--stroke);
+            flex-shrink: 0;
+        }
+
+        .preview-toolbar h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .preview-close {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            background: var(--bg-card);
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .preview-close:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent);
+        }
+
+        .preview-frame-wrap {
+            flex: 1;
+            min-height: min(75vh, 640px);
+            background: #0a0c12;
+            position: relative;
+        }
+
+        .preview-frame-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .preview-hint {
+            padding: 0.65rem 1rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--stroke);
+            line-height: 1.45;
+        }
+
+        .preview-fallback {
+            display: none;
+            position: absolute;
+            inset: 0;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .preview-fallback.is-visible {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .edu-grid {
@@ -1362,36 +1523,117 @@
             <p class="eyebrow">Downloads</p>
             <h2 class="sec-title">Supporting documents</h2>
         </div>
-        <p style="text-align:center;max-width:640px;margin:-1.5rem auto 2rem;font-size:0.95rem;color:var(--text-dim);">
-            PDFs open in a new tab. Word files download directly. The transcript-style PDF is digitally signed (Parchment / credential provider).
+        <p style="text-align:center;max-width:680px;margin:-1.5rem auto 2rem;font-size:0.95rem;color:var(--text-dim);">
+            Use <strong style="color:var(--text);font-weight:600;">Preview</strong> to view files in the page. PDFs use your browser viewer.
+            Word previews use Microsoft’s online viewer and require a <strong style="color:var(--text);font-weight:600;">public HTTPS</strong> URL (works on GitHub Pages; local <code style="font-size:0.85em;">file://</code> previews may not load).
         </p>
         <div class="doc-grid">
-            <a href="assets/documents/resume-feb-microsoft.docx" class="doc" download>
-                <i class="ph ph-file-doc"></i>
-                <div><strong>Résumé (Word)</strong><span>February version · Microsoft format</span></div>
-            </a>
-            <a href="assets/documents/past-experiences-draft.docx" class="doc" download>
-                <i class="ph ph-note"></i>
-                <div><strong>Experience narrative (Word)</strong><span>Expanded roles, projects, and skills draft</span></div>
-            </a>
-            <a href="assets/documents/truqo4mo-certificate.pdf" target="_blank" rel="noopener" class="doc">
-                <i class="ph ph-seal-check"></i>
-                <div><strong>Official academic record</strong><span>Digitally signed PDF (e.g. transcript)</span></div>
-            </a>
-            <a href="assets/documents/coursera-certificate.pdf" target="_blank" rel="noopener" class="doc">
-                <i class="ph ph-graduation-cap"></i>
-                <div><strong>Coursera · Meta mobile dev</strong><span>Certificate PDF</span></div>
-            </a>
-            <a href="assets/documents/git-essential-training-2019.pdf" target="_blank" rel="noopener" class="doc">
-                <i class="ph ph-git-branch"></i>
-                <div><strong>Git training</strong><span>LinkedIn Learning completion</span></div>
-            </a>
-            <a href="assets/documents/ieee-membership-certificate.pdf" target="_blank" rel="noopener" class="doc">
-                <i class="ph ph-award"></i>
-                <div><strong>IEEE membership</strong><span>Certificate + card available in Honors</span></div>
-            </a>
+            <article class="doc-card">
+                <div class="doc-card-top">
+                    <i class="ph ph-file-doc" aria-hidden="true"></i>
+                    <div>
+                        <strong>Résumé (Word)</strong>
+                        <span>February version · Microsoft format</span>
+                    </div>
+                </div>
+                <div class="doc-actions">
+                    <button type="button" class="btn-doc btn-doc-preview" data-preview-kind="office" data-preview-path="assets/documents/resume-feb-microsoft.docx" data-preview-title="Résumé (Word)">
+                        <i class="ph ph-eye"></i> Preview
+                    </button>
+                    <a href="assets/documents/resume-feb-microsoft.docx" class="btn-doc btn-doc-download" download><i class="ph ph-download-simple"></i> Download</a>
+                </div>
+            </article>
+            <article class="doc-card">
+                <div class="doc-card-top">
+                    <i class="ph ph-note" aria-hidden="true"></i>
+                    <div>
+                        <strong>Experience narrative (Word)</strong>
+                        <span>Expanded roles, projects, and skills draft</span>
+                    </div>
+                </div>
+                <div class="doc-actions">
+                    <button type="button" class="btn-doc btn-doc-preview" data-preview-kind="office" data-preview-path="assets/documents/past-experiences-draft.docx" data-preview-title="Experience narrative (Word)">
+                        <i class="ph ph-eye"></i> Preview
+                    </button>
+                    <a href="assets/documents/past-experiences-draft.docx" class="btn-doc btn-doc-download" download><i class="ph ph-download-simple"></i> Download</a>
+                </div>
+            </article>
+            <article class="doc-card">
+                <div class="doc-card-top">
+                    <i class="ph ph-seal-check" aria-hidden="true"></i>
+                    <div>
+                        <strong>Official academic record</strong>
+                        <span>Digitally signed PDF (e.g. transcript)</span>
+                    </div>
+                </div>
+                <div class="doc-actions">
+                    <button type="button" class="btn-doc btn-doc-preview" data-preview-kind="pdf" data-preview-path="assets/documents/truqo4mo-certificate.pdf" data-preview-title="Official academic record">
+                        <i class="ph ph-eye"></i> Preview
+                    </button>
+                    <a href="assets/documents/truqo4mo-certificate.pdf" class="btn-doc btn-doc-download" download target="_blank" rel="noopener"><i class="ph ph-download-simple"></i> Download</a>
+                </div>
+            </article>
+            <article class="doc-card">
+                <div class="doc-card-top">
+                    <i class="ph ph-graduation-cap" aria-hidden="true"></i>
+                    <div>
+                        <strong>Coursera · Meta mobile dev</strong>
+                        <span>Certificate PDF</span>
+                    </div>
+                </div>
+                <div class="doc-actions">
+                    <button type="button" class="btn-doc btn-doc-preview" data-preview-kind="pdf" data-preview-path="assets/documents/coursera-certificate.pdf" data-preview-title="Coursera · Meta mobile dev">
+                        <i class="ph ph-eye"></i> Preview
+                    </button>
+                    <a href="assets/documents/coursera-certificate.pdf" class="btn-doc btn-doc-download" download target="_blank" rel="noopener"><i class="ph ph-download-simple"></i> Download</a>
+                </div>
+            </article>
+            <article class="doc-card">
+                <div class="doc-card-top">
+                    <i class="ph ph-git-branch" aria-hidden="true"></i>
+                    <div>
+                        <strong>Git training</strong>
+                        <span>LinkedIn Learning completion</span>
+                    </div>
+                </div>
+                <div class="doc-actions">
+                    <button type="button" class="btn-doc btn-doc-preview" data-preview-kind="pdf" data-preview-path="assets/documents/git-essential-training-2019.pdf" data-preview-title="Git Essential Training">
+                        <i class="ph ph-eye"></i> Preview
+                    </button>
+                    <a href="assets/documents/git-essential-training-2019.pdf" class="btn-doc btn-doc-download" download target="_blank" rel="noopener"><i class="ph ph-download-simple"></i> Download</a>
+                </div>
+            </article>
+            <article class="doc-card">
+                <div class="doc-card-top">
+                    <i class="ph ph-award" aria-hidden="true"></i>
+                    <div>
+                        <strong>IEEE membership</strong>
+                        <span>Certificate · card linked in Honors</span>
+                    </div>
+                </div>
+                <div class="doc-actions">
+                    <button type="button" class="btn-doc btn-doc-preview" data-preview-kind="pdf" data-preview-path="assets/documents/ieee-membership-certificate.pdf" data-preview-title="IEEE membership certificate">
+                        <i class="ph ph-eye"></i> Preview
+                    </button>
+                    <a href="assets/documents/ieee-membership-certificate.pdf" class="btn-doc btn-doc-download" download target="_blank" rel="noopener"><i class="ph ph-download-simple"></i> Download</a>
+                </div>
+            </article>
         </div>
     </section>
+
+    <div id="doc-preview-modal" class="preview-modal" role="dialog" aria-modal="true" aria-labelledby="doc-preview-title">
+        <div class="preview-panel">
+            <div class="preview-toolbar">
+                <h3 id="doc-preview-title">Preview</h3>
+                <button type="button" class="preview-close" id="doc-preview-close" aria-label="Close preview"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="preview-frame-wrap">
+                <iframe id="doc-preview-frame" title="Document preview" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads"></iframe>
+                <div id="doc-preview-fallback" class="preview-fallback"></div>
+            </div>
+            <p class="preview-hint" id="doc-preview-hint"></p>
+        </div>
+    </div>
 
     <section id="education" class="fade-in">
         <div class="sec-head">
@@ -1489,6 +1731,90 @@
                 window.scrollTo({ top: y, behavior: 'smooth' });
             });
         });
+
+        (function initDocPreview() {
+            const modal = document.getElementById('doc-preview-modal');
+            const frame = document.getElementById('doc-preview-frame');
+            const titleEl = document.getElementById('doc-preview-title');
+            const hintEl = document.getElementById('doc-preview-hint');
+            const fallback = document.getElementById('doc-preview-fallback');
+            const closeBtn = document.getElementById('doc-preview-close');
+
+            function officePreviewBlocked() {
+                if (window.location.protocol === 'file:') return true;
+                const h = window.location.hostname;
+                return h === 'localhost' || h === '127.0.0.1' || /^127\.\d+\.\d+\.\d+$/.test(h);
+            }
+
+            function closeDocPreview() {
+                modal.classList.remove('is-open');
+                frame.removeAttribute('src');
+                frame.style.display = '';
+                fallback.classList.remove('is-visible');
+                fallback.innerHTML = '';
+                hintEl.textContent = '';
+                document.body.style.overflow = '';
+            }
+
+            function openDocPreview(kind, path, title) {
+                const absolute = new URL(path, window.location.href).href;
+                titleEl.textContent = title || 'Preview';
+                fallback.classList.remove('is-visible');
+                fallback.innerHTML = '';
+                hintEl.textContent = '';
+
+                if (kind === 'office') {
+                    if (officePreviewBlocked() || !/^https:/i.test(absolute)) {
+                        frame.removeAttribute('src');
+                        frame.style.display = 'none';
+                        fallback.innerHTML =
+                            '<p>Word preview uses Microsoft Office Online and needs your files at a <strong>public HTTPS</strong> URL (for example after you publish to GitHub Pages).</p>' +
+                            '<p>Open the <strong>Download</strong> button on the card to view the file on your computer.</p>';
+                        fallback.classList.add('is-visible');
+                        hintEl.textContent =
+                            'Local file:// or localhost URLs cannot be loaded by the Office viewer.';
+                        modal.classList.add('is-open');
+                        document.body.style.overflow = 'hidden';
+                        closeBtn.focus();
+                        return;
+                    }
+                    frame.style.display = '';
+                    frame.src =
+                        'https://view.officeapps.live.com/op/embed.aspx?src=' +
+                        encodeURIComponent(absolute);
+                    hintEl.textContent =
+                        'Rendered by Microsoft Office Online. If the frame stays blank, confirm the file is reachable at the published URL.';
+                } else {
+                    frame.style.display = '';
+                    frame.src = absolute;
+                    hintEl.textContent = 'PDF preview uses your browser\'s built-in viewer.';
+                }
+
+                modal.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            }
+
+            document.querySelectorAll('.btn-doc-preview').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    openDocPreview(
+                        btn.dataset.previewKind,
+                        btn.dataset.previewPath,
+                        btn.dataset.previewTitle
+                    );
+                });
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeDocPreview();
+            });
+
+            closeBtn.addEventListener('click', closeDocPreview);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('is-open')) closeDocPreview();
+            });
+        })();
     </script>
 </body>
 </html>
